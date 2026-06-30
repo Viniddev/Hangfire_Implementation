@@ -26,13 +26,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 #endregion
 
-app.MapPost("/agendar-tarefa/{identificador}", async ([FromServices] IScheduler _scheduler, string identificador) =>
+app.MapPost("/agendar/{identificador}", async ([FromServices] IScheduler _scheduler, string identificador) =>
 {
     var result = await _scheduler.AgendarBusca(identificador);
 
     return $"Tarefa {identificador} Agendada: {result}";
 })
-.WithName("agendar-tarefa");
+.WithName("agendar");
 
 app.MapGet("/consultar-agendamento/{identificador}", async ([FromServices] IIntegracaoExemplo _integracao, string identificador) =>
 {
