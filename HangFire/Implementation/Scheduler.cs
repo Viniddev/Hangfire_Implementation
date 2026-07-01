@@ -54,9 +54,7 @@ public class Scheduler(
             return content;
         }
 
-        Console.WriteLine($"Ainda processando a requisição {executionId} ...");
-
-        _backgroundClient.Schedule<IScheduler>(j => j.BuscarDados(executionId), TimeSpan.FromSeconds(30));
+        _backgroundClient.Schedule<IScheduler>(j => j.BuscarDados(executionId), TimeSpan.FromSeconds(10));
 
         return string.Empty;
     }

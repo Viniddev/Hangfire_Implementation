@@ -25,6 +25,8 @@ public class IntegracaoExemplo : IIntegracaoExemplo
             (_, tentativaAnterior) => tentativaAnterior + 1
         );
 
+        Console.WriteLine($"Ainda processando a requisição {processingId}: {tentativaAtual} ...");
+
         if (tentativaAtual < 3)
         {
             return Task.FromResult(new IntegrationResponse

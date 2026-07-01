@@ -1,4 +1,5 @@
 ﻿using Hangfire;
+using Hangfire.MemoryStorage;
 
 namespace Api.Configuration;
 
@@ -9,7 +10,7 @@ public static class HangFireConfig
         services.AddHangfire(config => config
             .UseSimpleAssemblyNameTypeSerializer()
             .UseRecommendedSerializerSettings()
-            .UseSqlServerStorage(configuration.GetConnectionString("DefaultConnection")));
+            .UseMemoryStorage());
 
         services.AddHangfireServer(options =>
         {
